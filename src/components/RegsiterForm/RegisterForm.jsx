@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import './registerForm.scss';
 import { offers } from '../../data/offers';
+import { useNavigate, useParams } from 'react-router-dom';
 function RegisterForm() {
+  const navigate = useNavigate();
+  let {courseName, courseDuration} = useParams();
 console.log(offers)
   const [selectedProduct, setSelectedProduct] = useState("");
   const [selectedOffer, setSelectedOffer] = useState("");
@@ -14,6 +17,9 @@ console.log(offers)
   const handleOfferChange = (e) => {
     setSelectedOffer(e.target.value);
   };
+  const handleOnClick = () => {
+    navigate("/")
+  }
 
   const filteredOffers = offers.filter(offer => offer.offer_type === selectedProduct);
 
@@ -38,6 +44,16 @@ console.log(offers)
                 <label htmlFor="">Email</label>
                 <input type="text" name="email" placeholder='Email' className='registerForm__input'/>
               </div>
+
+              <div className="input__group-courses">
+                <label htmlFor="">Course Name</label>
+                <label type="text" name="courseName" className='registerForm__course-name'>{courseName}</label>
+              </div>
+              <div className="input__group-courses">
+                <label htmlFor="">Course Duration</label>
+                <label type="text" name="courseDuration" className='registerForm__course-name'>{courseDuration}</label>
+              </div>
+              
               
               <div className="input__group">
               <label htmlFor="">Product</label>
@@ -92,7 +108,7 @@ console.log(offers)
           </div>
           <div className="registerForm__card-footer">
             <button className='registerForm__button--cancel'>Cancel</button>
-            <button className='registerForm__button--save'>Register</button>
+            <button className='registerForm__button--save'onClick={handleOnClick}>Register</button>
           </div>
         </div>
   </section>)
