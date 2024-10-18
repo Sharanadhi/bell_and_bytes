@@ -9,6 +9,7 @@
     background-color:#00549A;
     display: flex;
     align-items: center;
+    position: relative;
 
     &_logo{
         width: 60px;
@@ -30,11 +31,23 @@
     }
     &__menu{
         height: 30px;
-        margin: 10px 0;
-        margin-right: 36px;
         align-items: center;
-        margin: 10px 16px; 
         cursor: pointer;
+    }
+
+    &__ham-toggle {
+        cursor: pointer;
+        height: 4rem;
+        background-color: transparent;
+        border: none;
+    }
+
+    &__menu-nav {
+        list-style: none;
+        position: absolute;
+        left: 0;
+        width: 0;
+        overflow: hidden;
     }
 }
 .banner{
