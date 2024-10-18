@@ -56,50 +56,20 @@
       background-color: $color-lightgrey;
     }
   }
-  &__food {
-    // display: flex;
-    &-container {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-      
-    }
-    &-img {
-      padding: 1rem;
-      height: 13.40vw;
-      width: 23.888888vw;
+}
 
-      margin: 0 1.5rem 1.5rem 0;
-          &--three, &--six, &--nine{
-              margin-right: 0;
-              // position: relative;
-          
-          }
-          &--seven, &--eight, &--nine{
-              margin-bottom: 2.5rem;
-              // position: relative;
-          }
-          &_block{
-            
-            &-image{
-              position: relative;
-              width: 15rem;
-              height: 12rem;
-              margin: 0 1rem;
-              z-index: -1;
-            }
-          
-            &-title {
-              padding: 1rem, 0;
-              width: 15rem;
-              text-wrap: wrap;
-              margin-bottom: 1rem;
-              @include body-medium;
-            }
-          }
-          
-    }
-    
-  }
+.card__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  padding: 1.2rem 2.4rem;
+  margin: 1.2rem 2.4rem;
+  border-radius: 24px;
+  background-color: $color-white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

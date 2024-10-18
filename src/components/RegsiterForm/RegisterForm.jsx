@@ -1,18 +1,25 @@
-import React from 'react';
 import { useState } from 'react';
 import './registerForm.scss';
+import { offers } from '../../data/offers';
+function RegisterForm() {
+console.log(offers)
+  const [selectedProduct, setSelectedProduct] = useState("");
+  const [selectedOffer, setSelectedOffer] = useState("");
 
-function RegisterForm(){
-  let foodList = []
-  const handleCheckbox = (e, s) => {
-    if (e.target.checked) {
-      foodList.push(s)
-    }
-    else {
-      const index = foodList.indexOf(s)
-      foodList.splice(index,1)
-    }
-  }
+  const handleProductChange = (e) => {
+    setSelectedProduct(e.target.value);
+    setSelectedOffer(""); // Reset selected offer when product changes
+  };
+
+  const handleOfferChange = (e) => {
+    setSelectedOffer(e.target.value);
+  };
+
+  const filteredOffers = offers.filter(offer => offer.offer_type === selectedProduct);
+
+  const selectedOfferDetails = offers.find(offer => offer.offer_value === selectedOffer);
+
+    
 
   return (<section className="registerForm">
     <div className='registerForm__card'>
@@ -33,66 +40,52 @@ function RegisterForm(){
               </div>
               
               <div className="input__group">
-                <label htmlFor="">Select your Lunch</label>
-                <div className='registerForm__food'>
-                  <div className='registerForm__food-container'>
-                    <div className="registerForm__food-img--one">
-                      <img className='registerForm__food-img_block-image'  src="/src/assets/food/pasta_coriander_salad.png" alt="" />
-                      <input type="checkbox" className="registerForm__food-chkbox" onChange ={(e) => handleCheckbox(e, "Pasta Coriander Salad")}/>
-                      <div className='registerForm__food-img_block-title'>Pasta Coriander Salad</div>
-                      
-                    </div>
-                    <div className="registerForm__food-img--two">
-                      <img className='registerForm__food-img_block-image' src="/src/assets/food/pepperoni_pizza.png" alt="" />
-                      
-                      <input type="checkbox" className="registerForm__food-chkbox" onChange ={(e) => handleCheckbox(e, "Pepperoni Pizza")}/>
-                      <div className='registerForm__food-img_block-title'>Pepperoni Pizza</div>
-                    </div>
-                    <div className="registerForm__food-img--three">
-                      <img className='registerForm__food-img_block-image' src="/src/assets/food/bacon_cheeseburger.png" alt="" />
-                      
-                      <input type="checkbox" className="registerForm__food-chkbox" onChange ={(e) => handleCheckbox(e, "Bacon Cheeseburger")}/>
-                      <div className='registerForm__food-img_block-title'>Bacon Cheeseburger</div>
-                    </div>
-                    <div className="registerForm__food-img--four">
-                      <img className='registerForm__food-img_block-image' src="/src/assets/food/barbecued_salmon_and_fried_potatoes.png" alt="" />
-                      
-                      <input type="checkbox" className="registerForm__food-chkbox" onChange ={(e) => handleCheckbox(e, "Barbecued Salmon and Fried Potatoes")}/>
-                      <div className='registerForm__food-img_block-title'>Barbecued Salmon and Fried Potatoes</div>
-                    </div>
-                    <div className="registerForm__food-img--five">
-                      <img className='registerForm__food-img_block-image' src="/src/assets/food/pork_meal.png" alt="" />
-                      
-                      <input type="checkbox" className="registerForm__food-chkbox" onChange ={(e) => handleCheckbox(e, "Pork Meal")}/>
-                      <div className='registerForm__food-img_block-title'>Pork Meal</div>
-                    </div>
-                    <div className="registerForm__food-img--six">
-                      <img className='registerForm__food-img_block-image' src="/src/assets/food/meat_pasta.png" alt="" />
-                      
-                      <input type="checkbox" className="registerForm__food-chkbox" onChange ={(e) => handleCheckbox(e, "Meat Pasta")}/>
-                      <div className='registerForm__food-img_block-title'>Meat Pasta</div>
-                    </div>
-                    <div className="registerForm__food-img--seven">
-                      <img className='registerForm__food-img_block-image' src="/src/assets/food/breakfast_feast.png" alt="" />
-                      
-                      <input type="checkbox" className="registerForm__food-chkbox" onChange ={(e) => handleCheckbox(e, "Breakfast Feast")}/>
-                      <div className='registerForm__food-img_block-title'>Breakfast Feast</div>
-                    </div>
-                    <div className="registerForm__food-img--eight">
-                      <img className='registerForm__food-img_block-image' src="/src/assets/food/tofu_meal.png" alt="" />
-                      
-                      <input type="checkbox" className="registerForm__food-chkbox" onChange ={(e) => handleCheckbox(e, "Tofu Meal")}/>
-                      <div className='registerForm__food-img_block-title'>Tofu Meal</div>
-                    </div>
-                    <div className="registerForm__food-img--nine">
-                      <img className='registerForm__food-img_block-image' src="/src/assets/food/vegan_sausages.png" alt="" />
-                      <input type="checkbox" className="registerForm__food-chkbox" onChange ={(e) => handleCheckbox(e, "Vegan Sausages")}/>
-                      <div className='registerForm__food-img_block-title'>Vegan Sausages</div>
-                    </div>
-                  </div> 
-                </div>
+              <label htmlFor="">Product</label>
+                <select name="product" className="registerForm__input" onChange={handleProductChange}>
+                  <option value="">Select a product</option>
+                  <option value="Mobility">Mobility</option>
+                  <option value="Internet">Internet</option>
+                  <option value="Tv">Tv</option>
+                </select>
               </div>
-              <select className='registerForm__input' name="food" />
+
+              <div className='input__group'>
+        <label htmlFor="">Offer</label>
+        <select name="offer" className="registerForm__input" onChange={handleOfferChange}>
+          <option value="">Select an offer</option>
+          {filteredOffers.map((offer) => (
+            <option key={offer.id} value={offer.offer_value}>{offer.price}</option>
+          ))}
+        </select>
+      </div>
+      
+      {selectedOfferDetails && (
+        <div className='card__container'>
+          <div className='card'>
+            <div className='card__header'>
+              <h2>{selectedOfferDetails.offer_name}</h2>
+              <p><del>{selectedOfferDetails.previous_price}</del></p>
+              <h3>{selectedOfferDetails.price}</h3>
+              <p>{selectedOfferDetails.additional_info}</p>
+              <hr />
+            </div>
+            <div className='card__body'>
+              <div>
+                <p><b>{selectedOfferDetails.data}</b></p>
+                <p>{selectedOfferDetails.data_description}</p>
+              </div>
+              <hr />
+              <div>
+                <ul>
+                  {selectedOfferDetails.perks.map((perk, index) => (
+                    <li key={index}>{perk}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
               </div>
               
             </form>
