@@ -1,3 +1,8 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
 .coursepage {
     display: flex;
     margin: 24px;
@@ -35,6 +40,14 @@
            font-size: 20px; // Subheading size
            margin-top: 16px; // Space above the subheading
            margin-bottom: 8px; // Space below the subheading
+    }
+    &__register{
+        background-color: $color-bell-blue;
+        color: $color-white;
+        width: fit-content;
+        height: fit-content;
+        padding: 1rem;
+        margin-bottom: 2rem;
     }
     // h1 {
     //     font-size: 24px; // Main title size

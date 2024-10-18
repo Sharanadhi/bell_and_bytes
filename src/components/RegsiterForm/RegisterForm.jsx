@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './registerForm.scss';
 import { offers } from '../../data/offers';
-function RegisterForm({courseName, courseDuration}) {
+import { useParams } from 'react-router-dom';
+function RegisterForm() {
+  let {courseName, courseDuration} = useParams();
 console.log(offers)
   const [selectedProduct, setSelectedProduct] = useState("");
   const [selectedOffer, setSelectedOffer] = useState("");

@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './CourseDetails.scss';
 import { useParams } from 'react-router-dom';
+import RegisterForm from '../RegsiterForm/RegisterForm';
 
 const CourseDetails = ({ courses }) => {
     const { id } = useParams();
@@ -32,7 +34,13 @@ const CourseDetails = ({ courses }) => {
                     ))}
             </ul>
             </div>
-    </div>
+            
+        </div>
+        <div>
+            <Link to={`/register/`+course.courseTitle+`/`+course.duration}> 
+                <button className='coursepage__register'>Register</button>
+            </Link>
+        </div>
     </>
     );
 }
