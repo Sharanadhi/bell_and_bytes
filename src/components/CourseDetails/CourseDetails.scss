@@ -1,7 +1,22 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/globals.scss';
+
 .coursepage {
     display: flex;
     margin: 24px;
     margin-bottom: 40px;
+    flex-direction: column;
+
+    @include tablet{
+        flex-direction: column;
+        width:100%;
+        margin-bottom: 26px;
+    }
+    @include desktop{
+        flex-direction: row;
+    }
 
     &__left {
         flex: 1; // Take up available space
@@ -9,20 +24,33 @@
     }
 
     &__img {
-        width: 50%; // Make the image responsive
+        width: 100%; // Make the image responsive
         height: auto; // Maintain aspect ratio
         border-radius: 5px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add shadow for depth
         margin-right: 16px;
+
+        @include tablet{
+            width:80%;
+            margin-bottom: 26px;
+        }
+        @include desktop{
+           width:40%; 
+        }
     }
 
     &__right {
         flex: 2; // Give more space to the text
+        width: 100%;
         padding-left: 16px; // Add spacing on the left side
         background-color: #f9f9f9; // Light background for contrast
         border-radius: 5px; // Rounded corners
         padding: 16px; // Padding inside the content area
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow
+
+        @include tablet{
+            width: 80%;
+        }
     }
 
     &__para {
@@ -31,27 +59,36 @@
         line-height: 1.5; // Increase line height for readability
         margin: 8px 0; // Add vertical spacing between paragraphs
         text-wrap: wrap;
+        width:100%;
+        @include desktop{
+            width:80%;
+        }
     }
     &__outcomes{
            font-size: 20px; // Subheading size
            margin-top: 16px; // Space above the subheading
            margin-bottom: 8px; // Space below the subheading
+           width:80%;
+    }
+    &__title{
+        width:80%;
     }
     // h1 {
     //     font-size: 24px; // Main title size
     //     margin-bottom: 16px; // Space below the title
     // }
 
-    // h3 {
+    // &__h3 {
     //     font-size: 20px; // Subheading size
     //     margin-top: 16px; // Space above the subheading
     //     margin-bottom: 8px; // Space below the subheading
     // }
 
-    // ul {
-    //     list-style-type: disc; // Use bullet points
-    //     margin-left: 20px; // Indent the list
-    // }
+    &__ul {
+        list-style-type: disc; // Use bullet points
+        margin-left: 20px; // Indent the list
+        width:80%;
+    }
 }
 .courseheader{
     font-size: 32px;
@@ -73,6 +110,7 @@
     border-radius: 5px; // Rounded corners
     cursor: pointer; // Change cursor to pointer on hover
     transition: background-color 0.3s ease, transform 0.2s ease; // Smooth transitions for hover effects
+    max-width: 80%;
 
     &:hover {
         background-color: #004080; // Darker shade on hover

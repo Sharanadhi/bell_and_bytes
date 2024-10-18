@@ -29,7 +29,7 @@ const CourseDetails = ({ courses }) => {
                 <p className='coursepage__para'><strong>Instructor:</strong> {course.instructor}</p>
                 <p className='coursepage__para'>{course.description}</p> 
                 <h3 className='coursepage__outcomes'>Learning Outcomes:</h3>
-                <ul>
+                <ul className='coursepage__ul'>
                     {course.learningOutcomes.map((outcome, index) => (
                         <li className='coursepage__para' key={index}>{outcome}</li>
                     ))}
