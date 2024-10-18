@@ -12,7 +12,7 @@ function App() {
       <Courses 
         data={courses}
       />
-      <RegisterForm />
+      <RegisterForm courseName='IOT' courseDuration='10mins' />
     </>
   )
 }

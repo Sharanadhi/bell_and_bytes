@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './registerForm.scss';
 import { offers } from '../../data/offers';
-function RegisterForm() {
+function RegisterForm({courseName, courseDuration}) {
 console.log(offers)
   const [selectedProduct, setSelectedProduct] = useState("");
   const [selectedOffer, setSelectedOffer] = useState("");
@@ -37,6 +37,16 @@ console.log(offers)
               <div className="input__group">
                 <label htmlFor="">Email</label>
                 <input type="text" name="email" placeholder='Email' className='registerForm__input'/>
+              </div>
+              
+              <div className="input__group-course">
+                <label htmlFor="">Course Name:</label>
+                <label type="text" name="courseName" className='registerForm__course-details'>{courseName}</label>
+              </div>
+
+              <div className="input__group-course">
+                <label htmlFor="">Course Duration:</label>
+                <label type="text" name="courseDuration" className='registerForm__course-duration'>{courseDuration}</label>
               </div>
               
               <div className="input__group">
