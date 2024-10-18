@@ -1,13 +1,12 @@
 import './Courses.scss';
 import { courses } from '../../data/courses';
 
-function Courses() {
-    console.log(courses)
+function Courses({ data }) {
     return (
         <section className='courses'>
             <h2 className='courses__header'>Courses</h2>
             <div className="courses__container">
-                {courses.map((course) => {
+                {data.map((course) => {
                     return (
                         <article className='course' key={course.id}>
                             <img className='course__img' src={course.image} alt={course.courseTitle} />
