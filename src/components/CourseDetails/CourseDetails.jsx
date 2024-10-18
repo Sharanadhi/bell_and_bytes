@@ -1,6 +1,6 @@
 import React from 'react'
 import './CourseDetails.scss';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const CourseDetails = ({ courses }) => {
     const { id } = useParams();
@@ -20,6 +20,9 @@ const CourseDetails = ({ courses }) => {
             {/* </div> */}
             <div className='coursepage-right'>
             <h1>{course.courseTitle}</h1>
+                <Link to={`/register`} className="course__link"> 
+                <button className='register-button'>Register</button>
+                </Link>
                 <p className='coursepage__para'><strong>Category:</strong> {course.category}</p>
                 <p className='coursepage__para'><strong>Duration:</strong> {course.duration}</p>
                 <p className='coursepage__para'><strong>Level:</strong> {course.level}</p>
