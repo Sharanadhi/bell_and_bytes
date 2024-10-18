@@ -107,8 +107,8 @@ console.log(offers)
             </form>
           </div>
           <div className="registerForm__card-footer">
-            <button className='registerForm__button--cancel'>Cancel</button>
-            <button className='registerForm__button--save'onClick={handleOnClick}>Register</button>
+            <button className='registerForm__button--cancel'onClick={handleOnClick}>Cancel</button>
+            <button className='registerForm__button--save' onClick={handleOnClick}>Register</button>
           </div>
         </div>
   </section>)
