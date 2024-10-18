@@ -1,53 +1,157 @@
-@use './mixins.scss' as *;
-@use './typography.scss' as *;
-@use './variables.scss' as *;
+@use "./mixins.scss" as *;
+@use "./typography.scss" as *;
+@use "./variables.scss" as *;
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 *,
 *::after,
 *::before {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
-body, header, footer, 
-div, section, form,
-h1, h2, h3, h4, p, 
-time, img, button {
-    margin: 0;
-    padding: 0;
+body,
+header,
+footer,
+div,
+section,
+form,
+h1,
+h2,
+h3,
+h4,
+p,
+time,
+img,
+button {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
-    background-color: $color-lightgrey;
-    color: $color-is-black;
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif;
+  background-color: $color-lightgrey;
+  color: $color-is-black;
 }
 
-button, input, textarea {
-    font-family: inherit;
+button,
+input,
+textarea {
+  font-family: inherit;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 h1 {
-    @include page-header;
+  @include page-header;
 }
 
 h2 {
-    @include subheader;
+  @include subheader;
 }
 
 h4 {
-    @include table-header;
+  @include table-header;
 }
 
-label, a, button {
-    @include labels-links-buttons;
+label,
+a,
+button {
+  @include labels-links-buttons;
+}
+
+.input__group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.btn__group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.link__group {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+textarea {
+  height: 1.6rem;
+  width: 100%;
+  padding: 1.4rem;
+  border-radius: 20px;
+  background-color: $color-white2;
+  // border: none;
+  border: 1px solid #f8f9fa;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 1.5px solid $color-lightgrey;
+}
+
+select {
+  height: 2.4rem;
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 20px;
+  background-color: $color-white2;
+  border: none;
+  outline: none;
+}
+
+textarea {
+  height: 4.8rem;
+}
+
+.form__section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.divider {
+  height: 1px;
+  width: 90%;
+  border-bottom: 1px solid $color-lightgrey;
+}
+
+button {
+  height: 2rem;
+  width: auto;
+  padding: 0.5rem 1.2rem;
+}
+
+.primary__btn {
+  background-color: $color-bell-blue;
+  color: white;
+  border: none;
+  border-radius: 24px;
+}
+
+.primary__btn:hover {
+  background-color: #2960a2;
 }
