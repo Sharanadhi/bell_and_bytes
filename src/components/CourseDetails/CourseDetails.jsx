@@ -19,7 +19,7 @@ const CourseDetails = ({ courses }) => {
              <img className='coursepage__img' src={course.image} alt={course.courseTitle} />
             {/* </div> */}
             <div className='coursepage-right'>
-            <h1>{course.courseTitle}</h1>
+            <h1 className='coursepage__title'>{course.courseTitle}</h1>
                 <Link to={`/register`} className="course__link"> 
                 <button className='register-button'>Register</button>
                 </Link>
@@ -29,7 +29,7 @@ const CourseDetails = ({ courses }) => {
                 <p className='coursepage__para'><strong>Instructor:</strong> {course.instructor}</p>
                 <p className='coursepage__para'>{course.description}</p> 
                 <h3 className='coursepage__outcomes'>Learning Outcomes:</h3>
-                <ul>
+                <ul className='coursepage__ul'>
                     {course.learningOutcomes.map((outcome, index) => (
                         <li className='coursepage__para' key={index}>{outcome}</li>
                     ))}
