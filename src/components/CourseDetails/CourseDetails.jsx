@@ -19,8 +19,8 @@ const CourseDetails = ({ courses }) => {
              <img className='coursepage__img' src={course.image} alt={course.courseTitle} />
             {/* </div> */}
             <div className='coursepage-right'>
-            <h1 className='coursepage__title'>{course.courseTitle}</h1>
-                <Link to={`/register`} className="course__link"> 
+            <h1>{course.courseTitle}</h1>
+                <Link to={`/register/`+course.courseTitle+`/`+course.duration} className="course__link"> 
                 <button className='register-button'>Register</button>
                 </Link>
                 <p className='coursepage__para'><strong>Category:</strong> {course.category}</p>
