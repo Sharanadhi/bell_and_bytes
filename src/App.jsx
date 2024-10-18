@@ -1,10 +1,13 @@
 import './App.scss'
-import Courses from './components/Courses/Courses'
+import { Route, Routes } from "react-router-dom";
+import Header from './components/Header';
+import Courses from './components/Courses/Courses';
 
 function App() {
   return (
     <>
-      <Courses></Courses>
+      <Header />
+      <Courses />
     </>
   )
 }
