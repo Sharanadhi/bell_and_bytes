@@ -5,7 +5,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 function RegisterForm() {
   const navigate = useNavigate();
   let {courseName, courseDuration} = useParams();
-console.log(offers)
   const [selectedProduct, setSelectedProduct] = useState("");
   const [selectedOffer, setSelectedOffer] = useState("");
 
