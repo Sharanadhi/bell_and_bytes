@@ -1,0 +1,58 @@
+.coursepage {
+    display: flex;
+    margin: 24px;
+
+    &__left {
+        flex: 1; // Take up available space
+        padding-right: 16px; // Add spacing between image and text
+    }
+
+    &__img {
+        width: 50%; // Make the image responsive
+        height: auto; // Maintain aspect ratio
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add shadow for depth
+        margin-right: 16px;
+    }
+
+    &__right {
+        flex: 2; // Give more space to the text
+        padding-left: 16px; // Add spacing on the left side
+        background-color: #f9f9f9; // Light background for contrast
+        border-radius: 5px; // Rounded corners
+        padding: 16px; // Padding inside the content area
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow
+    }
+
+    &__para {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.5; // Increase line height for readability
+        margin: 8px 0; // Add vertical spacing between paragraphs
+        text-wrap: wrap;
+    }
+    &__outcomes{
+           font-size: 20px; // Subheading size
+           margin-top: 16px; // Space above the subheading
+           margin-bottom: 8px; // Space below the subheading
+    }
+    // h1 {
+    //     font-size: 24px; // Main title size
+    //     margin-bottom: 16px; // Space below the title
+    // }
+
+    // h3 {
+    //     font-size: 20px; // Subheading size
+    //     margin-top: 16px; // Space above the subheading
+    //     margin-bottom: 8px; // Space below the subheading
+    // }
+
+    // ul {
+    //     list-style-type: disc; // Use bullet points
+    //     margin-left: 20px; // Indent the list
+    // }
+}
+.courseheader{
+    font-size: 32px;
+    margin: 24px;
+}
