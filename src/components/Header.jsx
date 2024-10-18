@@ -17,8 +17,8 @@ const Header = () => {
         <section className='hero'>
             <img className='hero' src={webinar} alt="heroimg" />
             <div className='hero__eventCard'>
-                <p className='hero_para'>Date: November-10-2024</p>
-                <p className='hero_para'>Mode: In-person</p>
+                <p className='hero_para'>Date: November-1st 2024</p>
+                <p className='hero_para'>Mode: Online</p>
                 <p className='hero_para'>Time: 9.30 am EST</p>
             </div>
         </section>
