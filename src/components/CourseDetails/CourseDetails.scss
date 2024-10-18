@@ -1,6 +1,7 @@
 .coursepage {
     display: flex;
     margin: 24px;
+    margin-bottom: 40px;
 
     &__left {
         flex: 1; // Take up available space
@@ -55,4 +56,36 @@
 .courseheader{
     font-size: 32px;
     margin: 24px;
+}
+.register-button {
+    margin:20px;
+    margin-left: 0;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d66af; // Primary color
+    height:50px;
+    width:15rem;
+    color: #ffffff; // White text for contrast
+    font-size: 16px; // Font size
+    padding: 12px 24px; // Vertical and horizontal padding
+    border: none; // Remove default border
+    border-radius: 5px; // Rounded corners
+    cursor: pointer; // Change cursor to pointer on hover
+    transition: background-color 0.3s ease, transform 0.2s ease; // Smooth transitions for hover effects
+
+    &:hover {
+        background-color: #004080; // Darker shade on hover
+        transform: translateY(-2px); // Slight lift effect
+    }
+
+    &:active {
+        background-color: #003366; // Even darker shade when clicked
+        transform: translateY(0); // Reset the lift effect
+    }
+
+    &:focus {
+        outline: none; // Remove default focus outline
+        box-shadow: 0 0 0 3px rgba(0, 84, 154, 0.5); // Add custom focus shadow
+    }
 }
