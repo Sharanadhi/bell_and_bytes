@@ -10,8 +10,11 @@ function Courses() {
                 {courses.map((course) => {
                     return (
                         <article className='course' key={course.id}>
-                            <img className='course__img' src={course.image} alt="" />
-                            <h3 className='course__name'>{course.courseTitle}</h3>
+                            <img className='course__img' src={course.image} alt={course.courseTitle} />
+                            <div className="course__content">
+                                <label className='course__category'>{course.category}</label>
+                                <h3 className='course__name'>{course.courseTitle}</h3>
+                            </div>
                         </article>
                     )
                 })}
